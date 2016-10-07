@@ -104,11 +104,24 @@ namespace track_emply
            payRate = money * 1.04;
         }
 
-        
 
-       
+
+        //public string EmpInputN(string empNewName)
+        //{
+              
+        
+        //    public Square(double side) : base(side, 0)
+        //    {
+        //    }
+
+        //    public override double Area()
+        //    {
+        //        return x * x;
+        //    }
+        //}
+    }
 
 
 
     }
-}
+
