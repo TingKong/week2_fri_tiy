@@ -91,17 +91,17 @@ namespace track_emply
             List<Employ> myEmployList = new List<Employ>();
             Console.WriteLine("Please enter an employee name\n  ");
 
-            while (AddNewEmploy(jkl)) {
+            while (AddNewEmploy(userInput)) {
                 for (int i = 0; i <= myEmployList.Count; i++)
                 {
                     myEmployList.Add(new Employ());
                     myEmployList[i].FirstN = Console.ReadLine();
 
                 }
-                Console.WriteLine("Would you like to add an employee Y|N");
-                string jkl = Console.ReadLine().ToUpper();
+               
             }
-
+            Console.WriteLine("Would you like to add an employee Y|N");
+            string userInput = Console.ReadLine().ToUpper();
 
             //Console.WriteLine(myEmployList[i].FirstN);
 
