@@ -10,7 +10,6 @@ namespace track_emply
     {
         static void Main(string[] args)
         {
-            string UserInput;
 
 
             //Creating and changing departments
@@ -87,48 +86,62 @@ namespace track_emply
             //Utils.Pay(myArray);
 
 
-            //Ask for Employee Name from User
+            ////Ask for Employee Name from User from Ronda's notes
+            Console.Clear();
+            bool run = true;
+            int b;
             List<Employ> myEmployList = new List<Employ>();
-            Console.WriteLine("Please enter an employee name\n  ");
 
-            while (AddNewEmploy(userInput)) {
-                for (int i = 0; i <= myEmployList.Count; i++)
+            while (run)
+            {
+                Employ employInfo = (new Employ());
+                Console.WriteLine("Please enter an employee name ");
+                string employName = Console.ReadLine();
+                employInfo.FirstN = employName;
+                Console.Clear();
+
+                Console.WriteLine("Please enter salary ");
+                string salary = Console.ReadLine();
+                Int32.TryParse(salary, out b);
+                employInfo.PayRate = b;
+                Console.Clear();
+
+                myEmployList.Add(employInfo);
+
+                Console.WriteLine("Would you like to add an employee Y|N");
+                string userInput = Console.ReadLine().ToUpper();
+                Console.Clear();
+
+                if (userInput == "Y")
                 {
-                    myEmployList.Add(new Employ());
-                    myEmployList[i].FirstN = Console.ReadLine();
-
+                    run = true;
                 }
-               
+                else if (userInput == "N")
+                {
+                    run = false;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect input, Please enter a Y|N");
+                    run = false;
+                }
+
             }
-            Console.WriteLine("Would you like to add an employee Y|N");
-            string userInput = Console.ReadLine().ToUpper();
 
-            //Console.WriteLine(myEmployList[i].FirstN);
-
+            for (int i = 0; i < myEmployList.Count; i++)
+            {
+                Console.WriteLine(string.Format("{0} has a salary of {1}", myEmployList[i].FirstN, myEmployList[i].PayRate));
+            }
 
 
             Console.ReadLine();
-        
+
         }
 
-        static bool AddNewEmploy(string x)
-        {
-            if (x == "Y")
-            {
-                return true;
 
 
-            }
-            else if (x == "N")
-            {
-                return false;
-            }
-            else
-            {
-                Console.WriteLine("Incorrect input, Please enter a Y|N");
-                return false;
-            }
-      
-        }
+
     }
-}
+
+    }
+
